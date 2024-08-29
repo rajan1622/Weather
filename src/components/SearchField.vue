@@ -24,6 +24,9 @@ const handleSearch = () => {
   }, 500)
 }
 
+const getWeather=(id)=>{
+  console.log(id)
+}
 
 </script>
 
@@ -44,14 +47,15 @@ const handleSearch = () => {
     </form>
     <!-- search suggestions -->
     <div class="bg-white my-2 rounded-lg shadow-lg">
+    <div v-if="searchTerm.results !== null">
       <div v-for="place in searchTerm.results" :key="place.id">
           <button
             @click="getWeather(place.id)"
             class="px-3 my-2 hover:text-indigo-600 hover:font-bold w-full text-left">
             {{ place.name }}, {{ place.region }}, {{ place.country }}
 
-            
           </button>
+        </div>
         </div>
     </div>
   </div>
